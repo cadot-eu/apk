@@ -3,6 +3,12 @@ apply plugin: 'com.android.application'
 android {
     namespace "com.galaxywatch.heartrate"
     compileSdk rootProject.ext.compileSdkVersion
+    
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_21
+        targetCompatibility JavaVersion.VERSION_21
+    }
+    
     defaultConfig {
         applicationId "com.galaxywatch.heartrate"
         minSdkVersion rootProject.ext.minSdkVersion
