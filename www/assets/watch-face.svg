@@ -1,0 +1,85 @@
+<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="watchGradient" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#3a3a3a;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#2d2d2d;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a1a;stop-opacity:1" />
+    </radialGradient>
+    
+    <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff4757;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#ff6b7a;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#ff4757;stop-opacity:0.8" />
+    </linearGradient>
+    
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="innerShadow">
+      <feOffset dx="0" dy="0"/>
+      <feGaussianBlur stdDeviation="5" result="offset-blur"/>
+      <feComposite operator="out" in="SourceGraphic" in2="offset-blur" result="inverse"/>
+      <feFlood flood-color="black" flood-opacity="0.4"/>
+      <feComposite operator="in" in2="inverse"/>
+      <feComposite operator="over" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  
+  <!-- Ombre externe -->
+  <circle cx="160" cy="170" r="155" fill="rgba(0,0,0,0.5)" opacity="0.3"/>
+  
+  <!-- Corps principal de la montre -->
+  <circle cx="160" cy="160" r="155" fill="url(#watchGradient)" stroke="#333" stroke-width="2"/>
+  
+  <!-- Anneau extérieur décoratif -->
+  <circle cx="160" cy="160" r="148" fill="none" stroke="url(#ringGradient)" stroke-width="3" opacity="0.6" filter="url(#glow)"/>
+  
+  <!-- Écran principal -->
+  <circle cx="160" cy="160" r="135" fill="#000" stroke="#333" stroke-width="1" filter="url(#innerShadow)"/>
+  
+  <!-- Reflets sur l'écran -->
+  <ellipse cx="140" cy="120" rx="30" ry="15" fill="rgba(255,255,255,0.1)" opacity="0.3"/>
+  <ellipse cx="180" cy="200" rx="20" ry="8" fill="rgba(255,255,255,0.05)" opacity="0.5"/>
+  
+  <!-- Marques d'heure -->
+  <g stroke="#444" stroke-width="1" opacity="0.6">
+    <!-- 12h -->
+    <line x1="160" y1="35" x2="160" y2="45" stroke-width="2"/>
+    <!-- 3h -->
+    <line x1="285" y1="160" x2="275" y2="160" stroke-width="2"/>
+    <!-- 6h -->
+    <line x1="160" y1="285" x2="160" y2="275" stroke-width="2"/>
+    <!-- 9h -->
+    <line x1="35" y1="160" x2="45" y2="160" stroke-width="2"/>
+    
+    <!-- Marques secondaires -->
+    <line x1="209" y1="51" x2="204" y2="56"/>
+    <line x1="269" y1="111" x2="264" y2="116"/>
+    <line x1="269" y1="209" x2="264" y2="204"/>
+    <line x1="209" y1="269" x2="204" y2="264"/>
+    <line x1="111" y1="269" x2="116" y2="264"/>
+    <line x1="51" y1="209" x2="56" y2="204"/>
+    <line x1="51" y1="111" x2="56" y2="116"/>
+    <line x1="111" y1="51" x2="116" y2="56"/>
+  </g>
+  
+  <!-- Bouton couronne (droite) -->
+  <rect x="308" y="140" width="8" height="40" rx="4" fill="#666" stroke="#333" stroke-width="1"/>
+  <rect x="310" y="142" width="4" height="36" rx="2" fill="#888"/>
+  
+  <!-- Boutons latéraux -->
+  <rect x="305" y="100" width="6" height="25" rx="3" fill="#555" stroke="#333" stroke-width="1"/>
+  <rect x="305" y="195" width="6" height="25" rx="3" fill="#555" stroke="#333" stroke-width="1"/>
+  
+  <!-- Capteurs au dos (représentation) -->
+  <g opacity="0.3">
+    <circle cx="160" cy="160" r="8" fill="#4cd137"/>
+    <circle cx="160" cy="160" r="4" fill="#2ed227"/>
+    <text x="160" y="180" text-anchor="middle" font-family="Arial" font-size="8" fill="#666">HR</text>
+  </g>
+</svg>
