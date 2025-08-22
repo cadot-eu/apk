@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galaxy Watch - Pulsations Cardiaques</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="watch-container">
+        <!-- Cadran de la montre -->
+        <div class="watch-face">
+            <!-- Cercle extérieur décoratif -->
+            <div class="outer-ring"></div>
+            
+            <!-- Zone principale d'affichage -->
+            <div class="main-display">
+                <!-- En-tête avec icône et heure -->
+                <div class="header">
+                    <i class="fas fa-heartbeat heart-icon"></i>
+                    <div class="time" id="currentTime">14:32</div>
+                    <div class="battery">
+                        <i class="fas fa-battery-three-quarters"></i>
+                    </div>
+                </div>
+                
+                <!-- Affichage principal BPM -->
+                <div class="bpm-display">
+                    <div class="bpm-value" id="bpmValue">72</div>
+                    <div class="bpm-label">BPM</div>
+                    <div class="heart-animation">
+                        <i class="fas fa-heart" id="heartBeat"></i>
+                    </div>
+                </div>
+                
+                <!-- Zone de statut -->
+                <div class="status-zone">
+                    <div class="status-text" id="statusText">Fréquence normale</div>
+                    <div class="measurement-time" id="measurementTime">Il y a 2 min</div>
+                </div>
+                
+                <!-- Graphique des pulsations -->
+                <div class="chart-container">
+                    <canvas id="heartRateChart" width="280" height="100"></canvas>
+                </div>
+                
+                <!-- Indicateurs supplémentaires -->
+                <div class="indicators">
+                    <div class="indicator">
+                        <i class="fas fa-walking"></i>
+                        <span>1,247</span>
+                    </div>
+                    <div class="indicator">
+                        <i class="fas fa-fire"></i>
+                        <span>324</span>
+                    </div>
+                    <div class="indicator">
+                        <i class="fas fa-moon"></i>
+                        <span>7h 23m</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Boutons latéraux simulés -->
+            <div class="side-buttons">
+                <div class="side-button top" id="topButton"></div>
+                <div class="side-button bottom" id="bottomButton"></div>
+            </div>
+        </div>
+        
+        <!-- Contrôles tactiles -->
+        <div class="touch-controls">
+            <div class="swipe-indicator">
+                <i class="fas fa-chevron-up"></i>
+                <span>Glisser pour plus d'options</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal pour les détails -->
+    <div class="modal" id="detailsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Détails de la fréquence cardiaque</h3>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="detail-row">
+                    <span>Fréquence actuelle:</span>
+                    <span id="currentBpm">72 BPM</span>
+                </div>
+                <div class="detail-row">
+                    <span>Fréquence au repos:</span>
+                    <span>65 BPM</span>
+                </div>
+                <div class="detail-row">
+                    <span>Maximum aujourd'hui:</span>
+                    <span id="maxBpm">95 BPM</span>
+                </div>
+                <div class="detail-row">
+                    <span>Zone de fréquence:</span>
+                    <span id="hrZone">Zone de repos</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
